@@ -1,0 +1,6 @@
+Failed Test: Remove product from cart 
+Reason for Failure:Used .toHaveText()  
+How I Investigated: Using the dev tools checked that the badge disappears after removing product from cart.
+Tool Used: Playwright report , inspect tab 
+Fix Applied: Since the badge disappears used .toHaveCount(0) which means the element should have count 0 , i.e. it should be absent 
+Learning: Difference between .toHaveText and .toHaveCount . What should be used in case of an element that appears temporarily.
