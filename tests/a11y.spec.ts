@@ -8,3 +8,4 @@ test('Page should not have accessibility issues', async({page})=>{
 
     expect (results.violations.length).toBe(0);
 })
+
