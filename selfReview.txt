@@ -1,0 +1,16 @@
+Things Learned 
+During this task I understood how to setup playwright from basic on day 1, also figured out how to do manual testing , and how to figure out various test scenarios . 
+For day 2 , I learnt how use locators efficiently , keeping test independant, avoid hardcode values and working with test data, instead use data from test data . I also learnt how to debug a failed test using playwright html report and playwirght ui.
+For day 3 , I understood how to imporve the testing code by implementing POM , so that it increases the reusablity of components and we dont need to repeat the code  
+
+
+Difficulties faced 
+Faced difficulties in some basic typescript concepts, understood them by reading documentations. 
+Faced difficulty in refactoring code , figuring out where the code would work even if kept as it is , or if POM is needed necessarily . 
+While implementing Remove from cart functionality faced difficulty on writing the logic of how cart item removed cpould be identified . Figured out by using different functions .
+ 
+Improvement 
+Would like to imporve on basic knowledge of all the all the concepts .
+Playwright locators and difference between them , when and how to use them efficiently. 
+Would improve more on typescript
+

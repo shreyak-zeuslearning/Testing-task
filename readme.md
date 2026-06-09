@@ -46,8 +46,10 @@ TypeScript
 14. TC_014 Finish order and checkout-complete page
 
 ## How to run 
-1. Install dependencies npm install
+1. Install dependencies: npm install
 2. Run all tests : npx playwright test
 3. View report: npx playwright show-report
-
+4. Run tests in headed mode :npx playwright test --headed 
+5. Run tests in UI mode: npx playwright test --ui
+  
 
