@@ -12,8 +12,8 @@ test.beforeEach(async ({ page }) => {
   await page.fill('[data-test="username"]', standard_user.username);
   await page.fill('[data-test="password"]', standard_user.password);
   await page.click('[data-test="login-button"]');
-  await page.locator('[data-test="add-to-cart-sauce-labs-backpack"]').click();
-  await page.locator('[data-test="add-to-cart-sauce-labs-bike-light"]').click();
+  await page.locator(products[0].addToCartLocator).click();
+  await page.locator(products[1].addToCartLocator).click();
   await page.locator('[data-test="shopping-cart-link"]').click();
   await page.locator('[data-test="checkout"]').click();
   await expect(page).toHaveURL(/checkout-step-one/);

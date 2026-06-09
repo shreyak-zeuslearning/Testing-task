@@ -19,25 +19,26 @@ test("TC_005 Product list should be visible after login", async ({ page }) => {
 });
 
 test("TC_006 Add one product to the cart", async ({ page }) => {
-  await page.locator('[data-test="add-to-cart-sauce-labs-backpack"]').click();
+  await page.locator(products[0].addToCartLocator).click();
   await expect(page.locator('[data-test="shopping-cart-badge"]')).toHaveText("1");
 });
 
 test("TC_007 Remove product from the cart", async ({ page }) => {
-  await page.locator('[data-test="add-to-cart-sauce-labs-backpack"]').click();
-  await page.locator('[data-test="remove-sauce-labs-backpack"]').click();
+  await page.locator(products[0].addToCartLocator).click();
+  await expect(page.locator('[data-test="shopping-cart-badge"]')).toHaveText("1");
+  await page.locator(products[0].removeFromCartLocator).click();
   await expect(page.locator('[data-test="shopping-cart-badge"]')).toHaveCount(0);
 });
 
 test("TC_008 Add multiple products to cart ", async ({ page }) => {
-  await page.locator('[data-test="add-to-cart-sauce-labs-backpack"]').click();
-  await page.locator('[data-test="add-to-cart-sauce-labs-bike-light"]').click();
+  await page.locator(products[0].addToCartLocator).click();
+  await page.locator(products[1].addToCartLocator).click();
   await expect(page.locator('[data-test="shopping-cart-badge"]')).toHaveText("2");
 });
 
 test("TC_009 Cart page should show selected products  ", async ({ page }) => {
-  await page.locator('[data-test="add-to-cart-sauce-labs-backpack"]').click();
-  await page.locator('[data-test="add-to-cart-sauce-labs-bike-light"]').click();
+  await page.locator(products[0].addToCartLocator).click();
+  await page.locator(products[1].addToCartLocator).click();
 
   await page.locator('[data-test="shopping-cart-link"]').click();
   await expect(page).toHaveURL(/cart/);
