@@ -6,6 +6,7 @@ import {LoginPage} from '../pages/LoginPage';
 import { ProductPage } from "../pages/ProductPage";
 import { CartPage } from "../pages/CartPage";
 import {CheckoutPage} from '../pages/CheckoutPage';
+import {link} from '../utils/weblinks'
 
 const standard_user = users[0];
 const product1 = products[0];
@@ -32,13 +33,13 @@ test.beforeEach(async ({ page }) => {
     await productPage.addProductToCart(product2.name);
     await productPage.goToCart();
     await cartPage.checkout();
-    await expect(page).toHaveURL(/checkout-step-one/);
+    await expect(page).toHaveURL(link.checkOut1);
 });
 
 test("TC_010 Checkout with valid details @checkout @regression ",async({page})=>{
         await checkoutPage.fillCheckoutDetails('Jane','Doe','1009000');
         await checkoutPage.continueCheckout();
-        await expect(page).toHaveURL(/checkout-step-two/);
+        await expect(page).toHaveURL(link.checkoutOverview);
         await expect(page.locator('.title')).toHaveText('Checkout: Overview')
 });
 
@@ -63,9 +64,8 @@ test("TC_013 Checkout with missing last name @negative @checkout",async({page})=
 test("TC_014 Finish order and checkout-complete page @smoke @checkout", async({page})=>{
         await checkoutPage.fillCheckoutDetails('Jane','Doe','1009000');
         await checkoutPage.continueCheckout();
-        await expect(page).toHaveURL(/checkout-step-two/);
+        await expect(page).toHaveURL(link.checkoutOverview);
         await checkoutPage.finishOrder();
         await checkoutPage.verifyOrderConfirmation();          
-
 }
 );

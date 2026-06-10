@@ -1,4 +1,5 @@
 import {Page,Locator,expect } from '@playwright/test';
+import {link} from '../utils/weblinks';
 
 export class LoginPage {
     readonly page:Page;
@@ -17,7 +18,7 @@ export class LoginPage {
     }
 
     async goto():Promise<void>{
-        await this.page.goto('https://www.saucedemo.com/');
+        await this.page.goto(link.login);
     }
 
     async login(username:string, password:string): Promise<void>{

@@ -1,4 +1,5 @@
 import {Page,Locator,expect } from '@playwright/test';
+
  
 export class CheckoutPage{
   readonly page:Page;

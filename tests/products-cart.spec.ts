@@ -6,6 +6,8 @@ import {LoginPage} from '../pages/LoginPage';
 import { ProductPage } from "../pages/ProductPage";
 import { CartPage } from "../pages/CartPage";
 
+import { link } from "../utils/weblinks";
+
 const standard_user = users[0];
 const product1 = products[0];
 const product2 = products[1];
@@ -56,7 +58,7 @@ test("TC_009 Cart page should show selected products @cart ", async ({ page }) =
 
    await productPage.goToCart();
 
-  await expect(page).toHaveURL(/cart/);
+  await expect(page).toHaveURL(link.cart);
 
   await cartPage.verifyProductInCart(product1.name);
   await cartPage.verifyProductInCart(product2.name);

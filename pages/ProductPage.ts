@@ -6,9 +6,11 @@ export class ProductPage{
     readonly productList: Locator;
     readonly cartLink:Locator;
     readonly cartBadge:Locator;
+    readonly inventoryItems:Locator;
 
     constructor(page:Page){
         this.page=page;
+        this.inventoryItems=page.locator('[data-test="inventory-item"]');
         this.productList=page.locator('[data-test="inventory-list"]');
         this.cartLink=page.locator('[data-test="shopping-cart-link"]');
         this.cartBadge=page.locator('[data-test="shopping-cart-badge"]');
@@ -17,6 +19,8 @@ export class ProductPage{
 
     async verifyProductsPageIsVisible() : Promise<void>{
         await expect(this.productList).toBeVisible();
+        await expect(this.inventoryItems).toHaveCount(6);
+
     }
 
     async addProductToCart(productName: string) : Promise<void>{
